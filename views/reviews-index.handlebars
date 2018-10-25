@@ -1,12 +1,13 @@
-<!-- reviews-index -->
+<!-- views/reviews-index.handlebars -->
+
 <h1>Reviews</h1>
+
+<a href="/reviews/new"> New Review</a>
 
 <!-- This will format for each item in the reviews array -->
 {{#each reviews}}
-
     <!-- Make a second heading of the item's review title -->
     <h2>{{this.title}}</h2>
-
     <!-- Make a small line of the item's movieTitle -->
     <small>{{this.movieTitle}}</small>
 
