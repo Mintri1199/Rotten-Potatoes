@@ -31,17 +31,23 @@ app.get("/reviews/new", (req, res) => {
 
 // Create
 app.post('/reviews', (req, res) => {
-    console.log(req.body);
-    Review.create(req.body)
-    .then((review) => {
-        console.log(review);
-        res.redirect("/")
-    }).catch((err) => {
-        console.log(err);
-    })
+  Review.create(req.body).then((review) => {
+    console.log(review)
+    // Grave accents. not single quotes
+    res.redirect(`/reviews/${review._id}`) // Redirect to reviews/:id
+  }).catch((err) => {
+    console.log(err.message)
+  })
 })
-
-
+//Error
+// SHOW
+app.get('/reviews/:id', (req,res) => {
+    Review.findById(req.params.id).then((review) => {
+        res.render("reviews-show", {review: review})
+    }).catch((err) => {
+        console.log(err.message);
+    })
+});
 
 
 
