@@ -1,11 +1,17 @@
-<form method="POST" action="/reviews/{{review._id}}?_method=PUT">
-    {{> reviews-form}}
-    <!-- BUTTON -->
-    <p>
-        <button type="submit">Save Review</button>
-    </p>
-</form>
-
-<form action="/reviews/{{review._id}}" method="Get">
-    <button type="submit" href="/reviews{{review._id}}">Cancel</button>
-</form>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form method="POST" action="/reviews/{{review._id}}?_method=PUT">
+            {{> reviews-form}}
+            <!-- BUTTON -->
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Save Review</button>
+            </div>
+        </form>
+            <!-- CANCEL BUTTON -->
+        <form action="/reviews/{{review._id}}" method="Get">
+            <button class="btn btn-default btn-lg" type="submit">
+                <span class="glyphicon glyphicon-remove" aria-hidden='true'></span>Cancel
+            </button>
+        </form>
+    </div>
+</div>
