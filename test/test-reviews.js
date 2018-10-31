@@ -1,5 +1,7 @@
 // test-reviews.js
+var mongoose = require('mongoose');
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/RottenPotatoes")
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../index');
