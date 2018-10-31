@@ -10,7 +10,7 @@ const port =  process.env.PORT || 3000;
 
 
 // Middleware
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/rotten-potatoes")
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Rotten-Potatoes", { useNewUrlParser: true})
 app.engine("handlebars", exphbs({defaultLayout: "main"}))
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: true}));
