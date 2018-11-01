@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 const methodOverride = require("method-override")
 const reviews = require('./controllers/reviews');
 const port =  process.env.PORT || 3000;
+const comments = require('./controllers/comments')
+
+
 
 
 // Middleware
@@ -16,6 +19,8 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(methodOverride('_method'))
 app.use(reviews)
+app.use(comments)
+
 
 app.listen(port);
 

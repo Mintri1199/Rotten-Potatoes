@@ -1,5 +1,7 @@
-const Review = require("../model/Review.js")
+const Review = require("../models/Review.js")
 const app = require('express')()
+const Comment = require('../models/comment.js')
+
 
 // Routes
 app.get('/', (req, res) => {
@@ -33,7 +35,10 @@ app.post('/reviews', (req, res) => {
 app.get('/reviews/:id', (req,res) => {
     // console.log(err.message);
     Review.findById(req.params.id).then((review) => {
-        res.render("reviews-show", {review: review})
+        Comment.find({reviewId: req.params.id})
+        .then(comments => {
+            res.render("reviews-show", {review: review, comments: comments})
+        })
     }).catch((err) => {
         console.log(err.message);
     })
